@@ -5,7 +5,7 @@ const express = require("express");
 
 const app = express();
 
-const url = "https://www.theguardian.com/us";
+const url = "https://coinmarketcap.com/";
 
 axios(url)
   .then((res) => {
@@ -13,16 +13,18 @@ axios(url)
     const $ = cheerio.load(html);
     const result = [];
 
-    $(".fc-item__container", html).each(function () {
-      const content = $(this).text();
-      const url = $(this).find("a").attr("href");
-      result.push({
-        content,
-        url,
-      });
+    $(".cmc-link", html).each(function () {
+      const coin = $(this)
+        .find("p.sc-1eb5slv-0", ".iworP")
+        .attr("font-weight", "semibold")
+        .text();
+      if (coin) {
+        result.push(coin);
+      }
     });
+
     console.log(result);
   })
   .catch((err) => console.log(err));
 
-app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));
+app.listen(PORT, () => console.log(`WebScraping in progress on PORT ${PORT}`));
