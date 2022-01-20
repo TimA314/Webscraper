@@ -3,10 +3,10 @@
 ## A simple webscraper program.
 
 ### 🛠️ Tools:
-          nodejs 
-          cheerio 
-          express 
-          axios 
+          Node.js 
+          Cheerio 
+          Express 
+          Axios 
 
 Input a valid URL and select desired outputs using jQuery.
 
