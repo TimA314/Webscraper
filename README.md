@@ -1,6 +1,6 @@
 # Webscraper
 
-## A simple webscraper program.
+## A simple webscraping program.
 
 ### 🛠️ Tools:
           Node.js 
